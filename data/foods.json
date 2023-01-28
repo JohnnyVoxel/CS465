@@ -1,18 +1,24 @@
-[
-    {
+{
+    "1": {
+        "code": "SEA005",
         "name": "Fried Salmon Special",
+        "category": "SeaFood Special",
         "image": "seafoods.jpg",
-        "description": "<p>Fried Salmon Special, I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>",
-        "category": "SeaFood Special"
-    }, {
+        "description": "<p>Fried Salmon Special, I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>"
+        
+    },
+    "2": {
+        "code": "CHO009",
         "name": "Choco Ice Cream Sandwich",
+        "category": "Sumptuous Desserts",
         "image": "desserts.jpg",
-        "description": "<p>Choco Ice Cream Sandwich, I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>",
-        "category": "Sumptuous Desserts"
-    }, {
+        "description": "<p>Choco Ice Cream Sandwich, I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>"
+    },
+    "3": {
+        "code": "BUF006",
         "name": "Mixed Buffet",
+        "category": "Buffet",
         "image": "buffet.jpg",
-        "description": "<p>Mixed Buffet, I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>",
-        "category": "Buffet"
+        "description": "<p>Mixed Buffet, I'm a product overview. Here you can write more information about your product. Buyers like to know ...</p>"
     }
-]
+}
