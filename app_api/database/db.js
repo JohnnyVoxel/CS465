@@ -5,13 +5,19 @@ const readLine = require('readline');
 
 // avoid 'current Server Directory and Monitoring engine is depreciated'
 mongoose.set('useUnifiedTopology', true);
-
+/*
 const connect = () => {
     setTimeout(() => mongoose.connect(dbURI, {
         useNewUrlParser: true,
         useCreateIndex: true
     }), 1000);
 }
+*/
+
+////////TEST//////
+mongoose.connect(dbURI, { useNewUrlParser: true, useCreateIndex: true });
+const connect = mongoose.connection;
+///////End////////
 
 mongoose.connection.on('connected', () => {
   console.log(`Mongoose connected to ${dbURI}`);
@@ -62,4 +68,4 @@ process.on('SIGTERM', () => {
   });
 });
 
-require('./travlr');
+require('./models/travlr');
