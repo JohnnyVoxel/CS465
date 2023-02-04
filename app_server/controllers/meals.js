@@ -1,12 +1,51 @@
-var fs = require('fs');
+const request = require('request');
+const apiOptions = {
+    server: 'http://localhost:3000'
+}
 
-var foods = JSON.parse(fs.readFileSync('./data/foods.json', 'utf8'));
+/* Render meals list view */
+const renderMealsList = (req, res, responseBody) => {
+    let message = null;
+    let pageTitle = process.env.npm_package_description + ' - Meals';
 
-/* GET meals view */
-const meals = (req, res) => {
-    res.render('meals', { title: 'Travlr Getaways', foods });
+    if (!(responseBody instanceof Array)) {
+        message = 'API lookup error';
+        responseBody = [];
+    } else {
+        if (!responseBody.length) {
+            message = 'No foods in database';
+        }
+    }
+
+    res.render('meals', {
+        title: pageTitle,
+        foods: responseBody,
+        message
+    });
+};
+
+/* GET meals list view */
+const mealsList = (req, res) => {
+    const path = '/api/foods';
+    const requestOptions = {
+        url: `${apiOptions.server}${path}`,
+        method: 'GET',
+        json: {},
+    };
+
+    console.info('>> mealsController.mealsList calling ' + requestOptions.url);
+
+    request(
+        requestOptions,
+        (err, { statusCode }, body) => {
+            if (err) {
+                console.error(err);
+            }
+            renderMealsList(req, res, body);
+        }
+    )
 };
 
 module.exports = {
-    meals
+    mealsList
 };

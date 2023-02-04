@@ -18,7 +18,7 @@
 							<ul id="rooms">
 			{{#each suites}}
 								<li>
-									<a href="/rooms"><img src="images/{{this.image}}" alt="Img"></a>
+									<a href="/api/suites/{{this.code}}"><img src="images/{{this.image}}" alt="Img"></a>
 									<h2><a href="/rooms">{{this.name}}</a></h2>
 									<p>{{{this.description}}}</p>
 									<span class="rate">Rate: {{this.rate}}</span>

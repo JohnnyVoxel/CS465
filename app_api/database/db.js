@@ -15,6 +15,7 @@ const connect = () => {
 */
 
 ////////TEST//////
+// Workaround for database connection timeout
 mongoose.connect(dbURI, { useNewUrlParser: true, useCreateIndex: true });
 const connect = mongoose.connection;
 ///////End////////
