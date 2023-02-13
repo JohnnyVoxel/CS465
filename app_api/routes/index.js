@@ -16,7 +16,8 @@ router
 router
     .route('/trips/:tripCode')
     .get(tripsController.tripsFindByCode)
-    .put(tripsController.tripsUpdateTrip);
+    .put(tripsController.tripsUpdateTrip)
+    .delete(tripsController.tripsRemoveTrip);
 
 // Rooms
 router
