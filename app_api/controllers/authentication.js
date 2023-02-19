@@ -24,7 +24,7 @@ const register = (req, res) => {
         .status(200)
         .json({ token });
     }
-  });
+  })
 };
 
 const login = (req, res) => {
@@ -54,5 +54,5 @@ const login = (req, res) => {
 
 module.exports = {
   register,
-  login,
+  login
 };

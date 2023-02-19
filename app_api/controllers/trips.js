@@ -95,7 +95,7 @@ const tripsUpdateTrip = async (req, res) => {
                     .status(404)
                     .send({
                         message: "Trip not found with code " + req.params.tripCode
-                    });
+                    });                console.log("If 404");
             }
             res.send(trip);
         }).catch(err => {
@@ -140,9 +140,9 @@ const tripsRemoveTrip = async (req, res) => {
 }
 
 const getUser = (req, res, callback) => {
-    if (req.payload && req.payload.email) {
+    if (req.auth && req.auth.email) {
       User
-        .findOne({ email: req.payload.email })
+        .findOne({ email: req.auth.email })
         .exec((err, user) => {
             if (!user) {
                 return res

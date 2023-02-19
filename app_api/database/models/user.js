@@ -21,7 +21,7 @@ userSchema.methods.setPassword = function(password) {
     this.hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
 };
 
-userSchema.methods.validatePassword = function(password) {
+userSchema.methods.validPassword = function(password) {
     var hash = crypto.pbkdf2Sync(password, this.salt, 1000, 64, 'sha512').toString('hex');
     return this.hash === this.hash;
 };
@@ -35,7 +35,7 @@ userSchema.methods.generateJwt = function() {
         email: this.email,
         name: this.name,
         exp: parseInt(expiry.getTime() / 1000, 10),
-    }, process.env.JWTT_SECRET); // DO NOT KEEP YOUR SECRET IN THE CODE!
+    }, process.env.JWT_SECRET); // DO NOT KEEP YOUR SECRET IN THE CODE!
 };
 
 module.exports = mongoose.model('users', userSchema);

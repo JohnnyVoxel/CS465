@@ -60,7 +60,7 @@ export class DeleteTripComponent implements OnInit {
         .then(data => {
           console.log(data);
           console.log('Route to menu')
-          this.router.navigate(['']);
+          this.router.navigate(['list-trips']);
         });
     }
   }
