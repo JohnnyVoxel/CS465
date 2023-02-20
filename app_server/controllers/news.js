@@ -2,6 +2,8 @@ const request = require('request');
 const apiOptions = {
     server: 'http://localhost:3000'
 }
+const hbs = require('hbs');
+
 
 /* Render news list view */
 const renderNewsList = (req, res, responseBody) => {
@@ -45,6 +47,10 @@ const newsList = (req, res) => {
         }
     )
 };
+
+hbs.registerHelper('ifEquals', function (arg1, arg2, options){
+    return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+});
 
 module.exports = {
     newsList

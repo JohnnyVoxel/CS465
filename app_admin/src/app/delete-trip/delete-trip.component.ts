@@ -57,11 +57,7 @@ export class DeleteTripComponent implements OnInit {
 
     if (this.deleteForm.valid) {
       this.tripService.removeTrip(this.deleteForm.value)
-        .then(data => {
-          console.log(data);
-          console.log('Route to menu')
-          this.router.navigate(['list-trips']);
-        });
+      this.router.navigate(['list-trips']);
     }
   }
 }

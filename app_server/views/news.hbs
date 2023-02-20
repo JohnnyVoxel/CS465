@@ -18,26 +18,26 @@
 								<h3>Latest News</h3>
 								<ul>
 			{{#each stories}}
-				{{#with latest}}
+				{{#ifEquals this.category "latest"}}
 									<li>
 										<a href="{{this.link}}">{{this.title}}</a>
 									</li>
-				{{/with}}
+				{{/ifEquals}}
 			{{/each}}
 								</ul>
 								<h3>Vaction Tips</h3>
 								<ul>
 			{{#each stories}}
-				{{#with tips}}
+				{{#ifEquals this.category "tip"}}
 									<li>
 										<a href="{{this.link}}">{{this.title}}</a>
 									</li>
-				{{/with}}
+				{{/ifEquals}}
 			{{/each}}
 								</ul>
 							</div>
 			{{#each stories}}
-				{{#with featured}}
+				{{#ifEquals this.category "featured"}}
 							<div>
 								<h1>News</h1>
 								<img src="images/{{this.image}}" alt="Img">
@@ -45,7 +45,7 @@
 								<span class="time">{{this.date}}<br> by: {{this.author}}</span>
 								{{{this.body}}}
 							</div>
-				{{/with}}
+				{{/ifEquals}}
 			{{/each}}
 						</div>
 					</div>
@@ -55,4 +55,4 @@
 		{{> footer}}
 	</div>
 </body>
-</html>
+</html> 
